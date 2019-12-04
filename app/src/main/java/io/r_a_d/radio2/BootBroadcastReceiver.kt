@@ -14,7 +14,7 @@ import io.r_a_d.radio2.streamerNotificationService.startStreamerMonitor
 class BootBroadcastReceiver : BroadcastReceiver(){
 
     override fun onReceive(context: Context, arg1: Intent) {
-        Log.d(tag, "Broadcast Receiver received $arg1")
+        //[REMOVE LOG CALLS]Log.d(tag, "Broadcast Receiver received $arg1")
         // define preferenceStore for places of the program that needs to access Preferences without a context
         preferenceStore = PreferenceManager.getDefaultSharedPreferences(context)
 

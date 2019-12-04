@@ -128,13 +128,13 @@ class RequestSongAdapter(private val dataSet: ArrayList<Song>
     fun filter(entry: String) {
         var text = entry
         dataSet.clear()
-        Log.d(tag, "entering filter")
+        //[REMOVE LOG CALLS]Log.d(tag, "entering filter")
         if (text.isEmpty()) {
             dataSet.addAll(dataSetOrig)
         } else {
             text = text.toLowerCase(locale = Locale.ROOT)
             for (item in dataSetOrig) {
-                Log.d(tag, "$text, ${item.artist.value!!.toLowerCase(locale = Locale.ROOT)}, ${item.title.value!!.toLowerCase(locale = Locale.ROOT)}")
+                //[REMOVE LOG CALLS]Log.d(tag, "$text, ${item.artist.value!!.toLowerCase(locale = Locale.ROOT)}, ${item.title.value!!.toLowerCase(locale = Locale.ROOT)}")
                 if (item.artist.value!!.toLowerCase(locale = Locale.ROOT).contains(text) ||
                     item.title.value!!.toLowerCase(locale = Locale.ROOT).contains(text)) {
                     dataSet.add(item)

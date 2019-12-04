@@ -36,7 +36,7 @@ class NewsViewModel : ViewModel() {
 
             news.date = formatter6.parse((result[n] as JSONObject).getString("updated_at")) ?: Date()
 
-            Log.d(tag, "$news")
+            //[REMOVE LOG CALLS]Log.d(tag, "$news")
             newsArray.add(news)
         }
     }

@@ -76,7 +76,7 @@ class AlarmFragment : PreferenceFragmentCompat() {
 
         fun updateDays(preference : MultiSelectListPreference?, newValue : Set<String>?)
         {
-            Log.d(tag, newValue.toString())
+            //[REMOVE LOG CALLS]Log.d(tag, newValue.toString())
             val listOfDays : String
             val fullWeek = context!!.resources.getStringArray(R.array.weekdays).toSet()
             val workingWeek = context!!.resources.getStringArray(R.array.weekdays).toSet().minusElement("Saturday").minusElement("Sunday")

@@ -62,12 +62,12 @@ class Requestor {
     }
 
     fun initFavorites(userName : String? = preferenceStore.getString("userName", null)){
-        Log.d(tag, "initializing favorites")
+        //[REMOVE LOG CALLS]Log.d(tag, "initializing favorites")
         favoritesSongArray.clear()
         if (userName == null)
         {
             // Display is done by default in the XML.
-            Log.d(tag, "no user name set for favorites")
+            //[REMOVE LOG CALLS]Log.d(tag, "no user name set for favorites")
             isFavoritesUpdated.value = true
             return
         }
@@ -90,10 +90,10 @@ class Requestor {
                 val lastPlayed : Int? = if (item.isNull("lastplayed")) null else item.getInt("lastplayed")
                 val requestCount : Int? = if (item.isNull("requestcount")) null else item.getInt("requestcount")
                 val isRequestable = (coolDown(lastPlayed, lastRequested, requestCount) < 0)
-                //Log.d(tag, "val : $id")
+                ////[REMOVE LOG CALLS]Log.d(tag, "val : $id")
                 favoritesSongArray.add(Song(artistTitle, id ?: 0, isRequestable))
             }
-            Log.d(tag, "favorites : $favoritesSongArray")
+            //[REMOVE LOG CALLS]Log.d(tag, "favorites : $favoritesSongArray")
             isFavoritesUpdated.value = true
         }
         Async(scrapeFavorites, postFavorites, ActionOnError.NOTIFY)

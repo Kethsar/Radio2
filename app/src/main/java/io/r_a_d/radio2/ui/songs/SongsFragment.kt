@@ -79,7 +79,7 @@ class SongsFragment : Fragment() {
 
         val tabLayout : TabLayout = root.findViewById(R.id.tabLayout)
         tabLayout.setupWithViewPager(viewPager)
-        Log.d(tag, "SongFragment view created")
+        //[REMOVE LOG CALLS]Log.d(tag, "SongFragment view created")
 
         Requestor.instance.snackBarText.observeForever(snackBarTextObserver)
 

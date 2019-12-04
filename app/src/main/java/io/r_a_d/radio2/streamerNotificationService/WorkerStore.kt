@@ -35,7 +35,7 @@ class WorkerStore {
                     15
                         )
         instance.tickerPeriod = tickerPeriod
-        Log.d(tag, "tickerPeriod = $tickerPeriod")
+        //[REMOVE LOG CALLS]Log.d(tag, "tickerPeriod = $tickerPeriod")
 
         with(PreferenceManager.getDefaultSharedPreferences(c).edit()){
             remove("streamerName")

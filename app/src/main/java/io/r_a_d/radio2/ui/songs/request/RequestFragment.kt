@@ -39,7 +39,7 @@ class RequestFragment : Fragment() {
     }
 
     private val requestSongObserver = Observer<Boolean> {
-        Log.d(tag, "request song list changed")
+        //[REMOVE LOG CALLS]Log.d(tag, "request song list changed")
         viewAdapter.notifyDataSetChanged()
     }
 

@@ -80,7 +80,7 @@ class FavoritesFragment : Fragment()  {
         recyclerSwipe = root.findViewById(R.id.recyclerSwipe) as SwipeRefreshLayout
         recyclerSwipe.setOnRefreshListener {
             val userName1 = preferenceStore.getString("userName", null)
-            Log.d(tag,"userName = $userName1")
+            //[REMOVE LOG CALLS]Log.d(tag,"userName = $userName1")
             if (userName1 != null && !userName1.isBlank())
             {
                 noUserNameText.visibility = View.GONE
@@ -93,7 +93,7 @@ class FavoritesFragment : Fragment()  {
 
 
         val userName1 = preferenceStore.getString("userName", null)
-        Log.d(tag,"userName = $userName1")
+        //[REMOVE LOG CALLS]Log.d(tag,"userName = $userName1")
         if (userName1 != null && !userName1.isBlank())
         {
             noUserNameText.visibility = View.GONE

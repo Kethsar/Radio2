@@ -22,7 +22,7 @@ class QueueFragment : Fragment(){
 
 
     private val queueObserver = Observer<Boolean> {
-        Log.d(tag, lastPlayedFragmentTag + "queue changed")
+        //[REMOVE LOG CALLS]Log.d(tag, lastPlayedFragmentTag + "queue changed")
         viewAdapter.notifyDataSetChanged()
     }
 

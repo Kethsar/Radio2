@@ -40,9 +40,9 @@ class ChatFragment : Fragment() {
             }
 
             chatViewModel.isChatLoaded = true
-            Log.d(tag, "webview created")
+            //[REMOVE LOG CALLS]Log.d(tag, "webview created")
         } else {
-            Log.d(tag, "webview already created!?")
+            //[REMOVE LOG CALLS]Log.d(tag, "webview already created!?")
         }
 
         return chatViewModel.root

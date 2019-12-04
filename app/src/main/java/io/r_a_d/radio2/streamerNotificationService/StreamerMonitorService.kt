@@ -69,7 +69,7 @@ class StreamerMonitorService : Service() {
                     Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("streamerMonitorPeriodPref", "15")!!).toLong()
                 else
                     15)
-        Log.d(tag, "tickerPeriod = ${WorkerStore.instance.tickerPeriod}")
+        //[REMOVE LOG CALLS]Log.d(tag, "tickerPeriod = ${WorkerStore.instance.tickerPeriod}")
 
         with(PreferenceManager.getDefaultSharedPreferences(this).edit()){
             remove("streamerName")
@@ -78,7 +78,7 @@ class StreamerMonitorService : Service() {
         WorkerStore.instance.streamerName.observeForever(streamerNameObserver)
         WorkerStore.instance.isServiceStarted = true
         startNextAlarmStreamer(this)
-        Log.d(tag, "streamerMonitor created")
+        //[REMOVE LOG CALLS]Log.d(tag, "streamerMonitor created")
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -100,7 +100,7 @@ class StreamerMonitorService : Service() {
                 //val hours_american = calendar.get(Calendar.HOUR)        // gets hour in 12h format
                 val minutes = calendar.get(Calendar.MINUTE)       // gets month number, NOTE this is zero based!
 
-                Log.d(tag, "Fetched streamer name at ${hours}:${if (minutes < 10) "0" else ""}${minutes}")
+                //[REMOVE LOG CALLS]Log.d(tag, "Fetched streamer name at ${hours}:${if (minutes < 10) "0" else ""}${minutes}")
                 fetchStreamer(this)
                 startNextAlarmStreamer(this) // schedule next alarm
                 return START_STICKY

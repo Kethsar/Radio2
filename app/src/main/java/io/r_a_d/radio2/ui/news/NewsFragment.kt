@@ -56,7 +56,7 @@ class NewsFragment : Fragment() {
             ViewModelProviders.of(this).get(NewsViewModel::class.java)
 
         newsViewModel.fetch()
-        Log.d(tag, "news fetched onCreate")
+        //[REMOVE LOG CALLS]Log.d(tag, "news fetched onCreate")
         super.onCreate(savedInstanceState)
     }
 }

@@ -45,7 +45,7 @@ fun startNextAlarmStreamer(c: Context){
             )
         }
     } else {
-        Log.d(tag, "alarm called while service is dead - skipped.")
+        //[REMOVE LOG CALLS]Log.d(tag, "alarm called while service is dead - skipped.")
     }
 }
 
@@ -108,7 +108,7 @@ fun fetchStreamer(applicationContext: Context) {
 
     try{
         Async(scrape, post)
-        Log.d(tag, "enqueue next work in ${WorkerStore.instance.tickerPeriod} seconds")
+        //[REMOVE LOG CALLS]Log.d(tag, "enqueue next work in ${WorkerStore.instance.tickerPeriod} seconds")
     } catch (e: Exception) {
     }
 }

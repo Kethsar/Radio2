@@ -71,7 +71,7 @@ class PlayerStore {
         if(isCompensatingLatency)
         {
             latencyCompensator = resMain.getLong("current")*1000 - (currentSong.startTime.value ?: resMain.getLong("current")*1000)
-            Log.d(tag, playerStoreTag +  "latency compensator set to ${(latencyCompensator).toFloat()/1000} s")
+            //[REMOVE LOG CALLS]Log.d(tag, playerStoreTag +  "latency compensator set to ${(latencyCompensator).toFloat()/1000} s")
         }
         currentSong.stopTime.value = resMain.getLong("end_time")*1000
         currentTime.value = (resMain.getLong("current"))*1000 - (latencyCompensator)
@@ -86,7 +86,7 @@ class PlayerStore {
         }
         val listeners = resMain.getInt("listeners")
         listenersCount.value = listeners
-        Log.d(tag, playerStoreTag +  "store updated")
+        //[REMOVE LOG CALLS]Log.d(tag, playerStoreTag +  "store updated")
     }
 
     private val scrape : (Any?) -> String =
@@ -122,7 +122,7 @@ class PlayerStore {
                     }
                 }
                 isQueueUpdated.value = true
-                Log.d(tag, playerStoreTag +  queue.toString())
+                //[REMOVE LOG CALLS]Log.d(tag, playerStoreTag +  queue.toString())
 
                 if (resMain.has("lp"))
                 {
@@ -135,7 +135,7 @@ class PlayerStore {
                             lp.add(lp.size, extractSong(queueJSON[i] as JSONObject))
                     }
                 }
-                Log.d(tag, playerStoreTag +  lp.toString())
+                //[REMOVE LOG CALLS]Log.d(tag, playerStoreTag +  lp.toString())
                 isLpUpdated.value = true
             }
             isInitialized = true
@@ -168,20 +168,20 @@ class PlayerStore {
             lp.add(0, n)
             currentSongBackup.copy(currentSong)
             isLpUpdated.value = true
-            Log.d(tag, playerStoreTag +  lp.toString())
+            //[REMOVE LOG CALLS]Log.d(tag, playerStoreTag +  lp.toString())
         }
     }
 
     fun updateQueue() {
         if (queue.isNotEmpty()) {
             queue.remove(queue.first())
-            Log.d(tag, playerStoreTag + queue.toString())
+            //[REMOVE LOG CALLS]Log.d(tag, playerStoreTag + queue.toString())
             fetchLastRequest()
             isQueueUpdated.value = true
         } else if (isInitialized) {
             fetchLastRequest()
         } else {
-            Log.d(tag, playerStoreTag +  "queue is empty!")
+            //[REMOVE LOG CALLS]Log.d(tag, playerStoreTag +  "queue is empty!")
         }
     }
 
@@ -223,11 +223,11 @@ class PlayerStore {
                     val t = extractSong(queueJSON[4] as JSONObject)
                     if (t == queue.last())
                     {
-                        Log.d(tag, playerStoreTag +  "Song already in there: $t")
+                        //[REMOVE LOG CALLS]Log.d(tag, playerStoreTag +  "Song already in there: $t")
                         Async(sleepScrape, post)
                     } else {
                         queue.add(queue.size, t)
-                        Log.d(tag, playerStoreTag +  "added last queue song: $t")
+                        //[REMOVE LOG CALLS]Log.d(tag, playerStoreTag +  "added last queue song: $t")
                         isQueueUpdated.value = true
                     }
                 }
